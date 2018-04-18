@@ -6,12 +6,34 @@
 借助[Yii 2](http://www.yiiframework.com/) 框架开发微信公众号&小程序扩展 <br>
 空闲时间就会更新上来，_顺手点一下`star`吧_ (｡♥‿♥｡)
 
+<h3>2018/4/18 更新common</h3>
+----------------------
+
+```
+common
+    components/              components组件
+            ResponseComponent               
+    extensions/
+        aliyunOss/           阿里云oss扩展
+        weapp/               微信小程序扩展
+        wechat/              微信公众号扩展
+        wechatpay/           微信支付扩展
+    helpers/
+        redis/               redis helper
+        ***Helper            base helper 
+    model/                   
+        Auth                 Auth
+        User                 User
+    services/
+        notify/              Notify Service
+        user/                User Service
+        wechat/              wechat Service
+```
 
 
 
-
-DIRECTORY STRUCTURE
--------------------
+DIRECTORY STRUCTURE <br> (not updated temporarily)
+----------------------------------------------
 
 ```
 common
