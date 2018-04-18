@@ -30,7 +30,12 @@ common
         wechat/              wechat Service
 ```
 
-
+更新计划
+------
+```
+2018/4/22前  更新 wechat module
+2018/4/25前  更新 weapp module
+```
 
 DIRECTORY STRUCTURE <br> (not updated temporarily)
 ----------------------------------------------
