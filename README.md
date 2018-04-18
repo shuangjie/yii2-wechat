@@ -12,7 +12,7 @@
 ```
 common
     components/              components组件
-            ResponseComponent               
+        ResponseComponent               
     extensions/
         aliyunOss/           阿里云oss扩展
         weapp/               微信小程序扩展
