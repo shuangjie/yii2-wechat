@@ -120,9 +120,6 @@ class OAuth extends Component {
         return $data;
     }
 
-
-
-
     /**
      * 通过code换取网页授权access_token
      * 首先请注意，这里通过code换取的网页授权access_token,与基础支持中的access_token不同。

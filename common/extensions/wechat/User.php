@@ -122,6 +122,7 @@ class User extends \common\models\User {
                 'user_id' => $user->id,
                 'source' => Auth::SOURCE_WECHAT,
                 'source_id' => $openId,
+                //注意看是否保存union_id
             ]);
             if($auth->save()){
                 $transaction->commit();

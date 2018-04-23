@@ -12,6 +12,7 @@ use yii\db\ActiveRecord;
  * @property integer $user_id
  * @property string $source
  * @property string $source_id
+ * @property string $union_id
  *
  * @property User $user
  */
@@ -39,7 +40,7 @@ class Auth extends ActiveRecord
         return [
             [['user_id', 'source', 'source_id'], 'required'],
             [['user_id'], 'integer'],
-            [['source', 'source_id'], 'string', 'max' => 255],
+            [['source', 'source_id', 'union_id'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
             [['source', 'source_id'], 'unique', 'targetAttribute' => ['source', 'source_id'], 'message' => 'The combination of Source and Source ID has already been taken.'],
 
@@ -56,12 +57,13 @@ class Auth extends ActiveRecord
             'user_id' => 'User ID',
             'source' => 'Source',
             'source_id' => 'Source ID',
+            'union_id' => 'Union ID',
         ];
     }
 
     /**
      * @param $user_id
-     * @param $source 'wxs' 'wechat'
+     * @param $source 'weapp' 'wechat'
      * @return array|null|ActiveRecord
      */
     public static function getOpenidByUserId($user_id,$source)

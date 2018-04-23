@@ -89,14 +89,6 @@ return [
             'key' => '',
             'notify_url' => 'https://weapp.xxx.com/weapp/pay/notify',
         ],
-
-        //阿里云oss
-        'aliyunOss' => [
-            'class' => 'common\extensions\aliyunOss\AliyunOssExtension',
-            'accessKeyId' => '',
-            'accessKeySecret' => '',
-            'endpoint' => '',
-        ],
         
     ],
 ];

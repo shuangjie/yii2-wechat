@@ -139,7 +139,6 @@ class User extends ActiveRecord implements IdentityInterface
         }
         $userInfo = json_decode($userInfo, true);
         return static::findIdentity($userInfo['id']);
-//        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
     }
 
     /**

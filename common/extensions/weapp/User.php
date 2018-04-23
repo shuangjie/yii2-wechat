@@ -1,5 +1,5 @@
 <?php
-namespace common\extensions\wxs;
+namespace common\extensions\weapp;
 use common\models\Auth;
 use Yii;
 use yii\base\Exception;
@@ -17,7 +17,7 @@ class User extends \common\models\User {
     public static function findIdentityByWeappOpenId($openId)
     {
         $auth = Auth::findOne([
-            'source' => Auth::SOURCE_WXS,
+            'source' => Auth::SOURCE_WEAPP,
             'source_id' => $openId
         ]);
         return $auth ? $auth->user : null;
@@ -76,7 +76,7 @@ class User extends \common\models\User {
             $user->province = $userInfo['province'];
             $user->country = $userInfo['country'];
             $user->avatar = $userInfo['avatarUrl']; //TODO 应该下载
-            $user->source = \common\models\User::SOURCE_WXAPP;
+            $user->source = \common\models\User::SOURCE_WEAPP;
             $user->setPassword(Yii::$app->security->generateRandomString(8));
             $user->generateAuthKey();
             if(!$user->save()){
@@ -85,8 +85,9 @@ class User extends \common\models\User {
             }
             $auth = new Auth([
                 'user_id' => $user->id,
-                'source' => Auth::SOURCE_WXS,
+                'source' => Auth::SOURCE_WEAPP,
                 'source_id' => $openId,
+                //这里如果有unionId建议也保存
             ]);
             if($auth->save()){
                 $transaction->commit();
