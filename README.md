@@ -6,15 +6,12 @@
 借助[Yii 2](http://www.yiiframework.com/) 框架开发微信公众号&小程序扩展 <br>
 空闲时间就会更新上来，_顺手点一下`star`吧_ (｡♥‿♥｡)
 
-2018/4/18 更新 common
---------------------
 
 ```
 common
     components/              components组件
         ResponseComponent               
     extensions/
-        aliyunOss/           阿里云oss扩展
         weapp/               微信小程序扩展
         wechat/              微信公众号扩展
         wechatpay/           微信支付扩展
@@ -28,14 +25,12 @@ common
         notify/              Notify Service
         user/                User Service
         wechat/              wechat Service
+weapp                        微信小程序
+       .../
+wechat                       微信公众号
+       .../
 ```
 
-更新计划
-------
-```
-2018/4/22前  更新 wechat module
-2018/4/25前  更新 weapp module
-```
 
 DIRECTORY STRUCTURE <br> (not updated temporarily)
 ----------------------------------------------
