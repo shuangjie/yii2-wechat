@@ -4,7 +4,12 @@
 </p>
 
 借助[Yii 2](http://www.yiiframework.com/) 框架开发微信公众号&小程序扩展 <br>
-空闲时间就会更新上来，_顺手点一下`star`吧_ (｡♥‿♥｡)
+空闲时间就会更新上来，_顺手点一下`star`吧_ (｡♥‿♥｡)<br>
+
+<p align="center">
+    <h1 align="center">最近项目比较忙，之后更新具体的model和小相关操作</h1>
+    <br>
+</p>
 
 
 ```
