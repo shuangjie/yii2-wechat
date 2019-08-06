@@ -92,7 +92,7 @@ class RequestHandler implements RequestHandlerInterface {
     public static function link(&$request){
         //转发到客服
         //return ResponsePassive::transferCustomerService($request['tousername'], $request['fromusername']);
-        $content = '系统已为您接入人工服务，请您耐心等待,谢谢Biu~Biu~Biu~';
+        $content = '系统已为您接入人工服务，请您耐心等待';
         return ResponsePassive::text($request['tousername'], $request['fromusername'], $content);
     }
 
@@ -102,7 +102,7 @@ class RequestHandler implements RequestHandlerInterface {
      * @return array
      */
     public static function eventSubscribe(&$request){
-        $content = '欢迎您关注我们.';
+        $content = '欢迎您关注我们';
         return ResponsePassive::text($request['tousername'], $request['fromusername'], $content);
     }
 
@@ -112,7 +112,7 @@ class RequestHandler implements RequestHandlerInterface {
      * @return array
      */
     public static function eventUnsubscribe(&$request){
-        $content = '为什么不理我了？';
+        $content = '取消关注';
         return ResponsePassive::text($request['tousername'], $request['fromusername'], $content);
     }
 
@@ -125,17 +125,9 @@ class RequestHandler implements RequestHandlerInterface {
         $sceneId = str_replace("qrscene_","",$request['eventkey']);
         $params = Yii::$app->params;
         $content = '欢迎您关注我们';
-        //二话不说，注册用户
+        //注册用户
         $user = User::SignUpByWechatOpenId($request['fromusername']);
-        //根据情景id，执行相应操作
-        switch ($sceneId){
-            case $params['wechat.scene.id.refund']: //关注返款
-                //执行退款
-                $refundService = new RefundService();
-                $ticket_num = $refundService->RefundToUser($user);
-                $content .= $ticket_num ? "，已将{$ticket_num}张一块解锁费用返还给您！" : "当前没有待返还的一块解锁";
-                break;
-        }
+    
         return ResponsePassive::text($request['fromusername'], $request['tousername'], $content);
     }
 
@@ -145,7 +137,7 @@ class RequestHandler implements RequestHandlerInterface {
      * @return array
      */
     public static function eventScan(&$request){
-        $content = '您已经关注了哦～';
+        $content = '您已经关注了';
         return ResponsePassive::text($request['tousername'], $request['fromusername'], $content);
     }
 
