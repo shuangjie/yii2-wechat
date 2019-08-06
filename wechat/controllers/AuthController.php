@@ -8,9 +8,6 @@ use yii\rest\Controller;
 /**
  * 基础的rest controller
  * 如果不需要做登录认证的controller，就不要继承这个类
- * User: DoubleJack
- * Date: 2018/4/02
- * Time: 18:37
  *
  * @property array $optionalActions 可选的action id。定义后的action可以不做登录限制
  * 具体在子类去设置

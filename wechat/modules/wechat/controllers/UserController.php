@@ -11,13 +11,6 @@ use yii\rest\Controller;
 use yii\web\BadRequestHttpException;
 use common\extensions\wechat\Wechat;
 
-/**
- * Created by PhpStorm.
- * User: DoubleJack
- * Date: 2018/4/23
- * Time: 19:59
- */
-
 class UserController extends AuthController  {
 
     protected $optionalActions = ['access-token'];
@@ -64,7 +57,7 @@ class UserController extends AuthController  {
         $info['sex'] = $user->sex;
         $info['avatar'] = $user->avatar;
 //        $info['access_token'] = $accessToken;
-//        $info['subscribe'] = UserService::isSubscribeWechatAccount($user) ? 1 : 0;
+        $info['subscribe'] = UserService::isSubscribeWechatAccount($user) ? 1 : 0;
         return ResponseComponent::success($info);
     }
 

@@ -4,15 +4,10 @@ use common\components\ResponseComponent;
 use common\extensions\wechatpay\lib\ResultCollection;
 use common\extensions\wechatpay\WechatPay;
 use common\models\Auth;
-use common\models\Live;
-use common\models\LiveTicket;
 use common\models\Order;
-use common\models\OrderRefund;
 use common\models\Recharge;
 use common\models\User;
 use common\helpers\DeviceDetect;
-use common\services\finance\RefundService;
-use common\services\user\UserService;
 use Detection\MobileDetect;
 use Yii;
 use wechat\models\payment\UnifiedOrderForm;
@@ -21,12 +16,6 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 
-/**
- * Created by PhpStorm.
- * User: DoubleJack
- * Date: 2018/4/23
- * Time: 17:37
- */
 class PaymentController extends AuthController{
 
 
@@ -48,8 +37,8 @@ class PaymentController extends AuthController{
             throw new BadRequestHttpException("invalid params:type", 1);
         }
 
-        //判断设备环境
-        //判断交易类型和支付方式
+        //判断设备环境、交易类型、支付方式
+
         !isset($params['pay_type']) && $params['pay_type'] = UnifiedOrderForm::PAY_TYPE_WECHATPAY;
         if($params['pay_type'] == UnifiedOrderForm::PAY_TYPE_WECHATPAY && !isset($params['trade_type'])){
             /* @var DeviceDetect|MobileDetect $deviceDetect */
@@ -114,49 +103,10 @@ class PaymentController extends AuthController{
 
     /**
      * 退款接口
-     * 用户砸蛋，请求该接口
-     * 先检查是否关注公众号，没有的话生成二维码
-     * @param int $emotion_id  live id ， 名字待定
      * @return array
      */
     public function actionRefund($emotion_id){
-        //live 实例
-        /**
-         * @var Live $live
-         */
-        $live = Live::findOne($emotion_id);
-        if(is_null($live)){
-            return ResponseComponent::failed(404, "ID does not exist");
-        }
-        //当前用户
-        /**
-         * @var User $user;
-         */
-        $user = Yii::$app->user->identity;
-        $user_id = Yii::$app->user->id;
-//        echo $user_id;
-        //查找票据
-        $ticket = LiveTicket::findOne([
-            'live_id' => $emotion_id,
-            'user_id' => $user_id,
-            'status' => LiveTicket::STATUS_VALID,
-        ]);
-        if(is_null($ticket)){
-            return ResponseComponent::failed(404, "Ticket does not exist");
-        }
-        $refundService = new RefundService();
-        $refund = $refundService->refundLiveTicketAuto($ticket->order_id);
-//        print_r($refund);exit;
-
-        $result = [];
-        $result['refund_code'] = $refund->status == OrderRefund::STATUS_COMPLETED ? 1 : 0;
-        $result['subscribe'] = UserService::isSubscribeWechatAccount($user) ? 1 : 0;
-        //如果状态为退款中，那么说明没有关注公众号
-//        if($refund->status == OrderRefund::STATUS_WAIT){
-            //返回二维码图片
-            $result['qrcode_url'] = "/static/img/refund-qr.jpg";  //不管关没关注，都给二维码
-//        }
-        return ResponseComponent::success($result);
+        
     }
 
 

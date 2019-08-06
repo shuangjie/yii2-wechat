@@ -18,18 +18,10 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-//            'identityCookie' => ['name' => '_identity', 'httpOnly' => true, 'domain' => $params['domain.session']],
-//            'loginUrl' => 'http://'.$params['domain.mobile'].'/login',
         ],
         'session' => [
             'name' => '_sid',
-//            'class' => 'yii\redis\Session',
-//            // this is the name of the session cookie used for login on the frontend
-//            'name' => '_sid',
-//            'keyPrefix' => '',
-//            'redis' => 'redis',
-////            'cookieParams' => ['domain' => $params['domain.session'], 'httpOnly' => true, 'lifetime' => 0],
-//            'timeout' => 3600,
+            'redis' => 'redis-wechat',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -51,12 +43,9 @@ return [
     'modules' => [
         'wechat' => [
             'class' => 'wechat\modules\wechat\WechatModule',
-        ],
-        'test' => [
-            'class' => 'wechat\modules\test\GeohashModule',
-        ],
+        ]
     ],
-    'name' => '邻时科技',
+    'name' => 'wechat',
     'language' => 'zh-CN',
     'params' => $params,
 ];

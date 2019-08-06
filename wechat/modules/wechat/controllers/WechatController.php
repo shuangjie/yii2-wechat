@@ -6,18 +6,10 @@ use common\extensions\wechat\Wechat;
 use Yii;
 use wechat\controllers\FvBaseController;
 use yii\rest\Controller;
-/**
- * 默认controller
- *
- * Created by PhpStorm.
- * User: DoubleJack
- * Date: 2018/4/23
- * Time: 19:51
- */
 
 class WechatController extends Controller{
 
-    public function actionIndex(){ //不需要登陆了
+    public function actionIndex(){
         /**
          * @var Wechat $wechat
          */

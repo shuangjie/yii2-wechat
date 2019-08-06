@@ -10,9 +10,6 @@ use yii\base\Model;
 
 /**
  * 统一下单接口基础表单
- * User: DoubleJack
- * Date: 2018/4/23
- * Time: 22:42
  */
 class UnifiedOrderForm extends Model {
 
