@@ -8,7 +8,7 @@ use yii\web\Response;
 use yii\rest\Controller;
 use Yii;
 /**
- * 接收微信支付结果回调
+ * 接收微信支付结果回调 
  */
 class PayController extends Controller {
 
