@@ -1,18 +1,15 @@
 <?php
 namespace weapp\controllers;
+
 use common\components\ResponseComponent;
 use common\extensions\wechatpay\lib\ResultCollection;
 use common\extensions\wechatpay\WechatPay;
 use common\models\Auth;
 use common\models\FormId;
-use common\models\Live;
-use common\models\LiveTicket;
 use common\models\Order;
-use common\models\OrderRefund;
 use common\models\Recharge;
 use common\models\User;
 use common\helpers\DeviceDetect;
-use common\services\finance\RefundService;
 use common\services\user\UserService;
 use Detection\MobileDetect;
 use Yii;
@@ -22,12 +19,6 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 
-/**
- * Created by PhpStorm.
- * User: DoubleJack
- * Date: 2018/4/28
- * Time: 17:37
- */
 class PaymentController extends AuthController{
 
 
@@ -50,7 +41,6 @@ class PaymentController extends AuthController{
         }
         //重命名
         $params['amount'] = floatval ($params['amount']) * 100;  // 将"1.88"字符串 转为 1.88 数字,再乘100
-        $params['task_id'] = $params['id'];
         $source = Auth::getOpenidByUserId(Yii::$app->user->id,'weapp');
         $params['openid'] = $source['source_id'];
 
@@ -111,27 +101,5 @@ class PaymentController extends AuthController{
         }
         return ResponseComponent::buildResponse(ResponseComponent::CODE_ACTIVATED, 'ok', $ret);
     }
-
-
-    /**
-     * 根据当前用户获取微信openid
-     * @return string|boolean openid
-     */
-    private function getWechatOpenid(){
-        /* @var User $user */
-        $user = Yii::$app->user->identity;
-        $user->auths;
-        /* @var Auth $auth */
-        $auth = $user->wechatAuth;
-        if(is_null($auth)){
-            return false;
-        }
-        return $auth->source_id;
-    }
-
-
-
-
-
 
 }

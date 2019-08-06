@@ -11,13 +11,6 @@ use yii\rest\Controller;
 use yii\web\BadRequestHttpException;
 use common\extensions\weapp\Weapp;
 
-/**
- * Created by PhpStorm.
- * User: DoubleJack
- * Date: 2018/4/23
- * Time: 19:27
- */
-
 class UserController extends AuthController  {
 
     protected $optionalActions = ['access-token'];

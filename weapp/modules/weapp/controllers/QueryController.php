@@ -8,12 +8,6 @@ use yii\base\Response;
 use yii\rest\Controller;
 use yii\web\ForbiddenHttpException;
 
-/**
- * Created by PhpStorm.
- * User: DoubleJack
- * Date: 2018/4/23
- * Time: 19:22
- */
 class QueryController extends Controller{
 
     public function actionIndex(){

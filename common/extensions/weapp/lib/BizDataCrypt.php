@@ -1,14 +1,4 @@
 <?php
-/**
- * 对微信小程序用户加密数据的解密示例代码.
- *
- * @copyright Copyright (c) 1998-2014 Tencent Inc.
- * ```
- * User: DoubleJack
- * Date: 2018/3/27
- * Time: 14:35
- */
-
 namespace common\extensions\weapp\lib;
 
 use Yii;

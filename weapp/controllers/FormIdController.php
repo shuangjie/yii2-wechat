@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DoubleJack
- * Date: 2018/4/20
- * Time: 17:36
- */
 namespace weapp\controllers;
 
 use Yii;
