@@ -4,13 +4,39 @@
 </p>
 
 借助[Yii 2](http://www.yiiframework.com/) 框架开发微信公众号&小程序扩展 <br>
-空闲时间就会更新上来，_顺手点一下`star`吧_ (｡♥‿♥｡)<br>
+建个仓库，给以后开发微信相关用的基础框架。<br>
 
-<p align="center">
-    <h1 align="center">最近项目比较忙，之后更新具体的model和小相关操作</h1>
-    <br>
-</p>
+## 运行环境要求
 
+- Nginx 1.8+
+- PHP 7.1+
+- MySQL 5.7.7+
+- Redis 3.0+
+
+## 开发环境部署/安装
+
+本项目代码使用 PHP 框架 [Yii 2](http://www.yiiframework.com) 开发.
+
+### 基础安装
+
+#### 克隆源代码
+
+克隆源代码到本地：
+
+    > git clone git@github.com:overtrue/api.yike.io.git
+
+#### 安装扩展包依赖
+
+    composer install
+
+#### 初始化
+
+    > php init
+
+#### 其他事项
+修改配置，执行migrate
+
+    > php yii migrate
 
 ```
 common
@@ -34,42 +60,4 @@ weapp                        微信小程序
        .../
 wechat                       微信公众号
        .../
-```
-
-
-DIRECTORY STRUCTURE <br> (not updated temporarily)
-----------------------------------------------
-
-```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-environments/            contains environment-based overrides
 ```
