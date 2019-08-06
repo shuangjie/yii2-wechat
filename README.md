@@ -34,6 +34,7 @@
     > php init
 
 #### 其他事项
+
 修改配置，执行migrate
 
     > php yii migrate
