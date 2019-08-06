@@ -9,9 +9,6 @@ use yii\rest\Controller;
 use Yii;
 /**
  * 接收微信支付结果回调
- * User: DoubleJack
- * Date: 2018/4/23
- * Time: 19:52
  */
 class PayController extends Controller {
 
