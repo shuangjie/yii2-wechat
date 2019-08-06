@@ -71,7 +71,6 @@ return [
             'redis' => 'redis-weapp',
         ],
 
-
         //公众号 -- 微信支付
         'wechatPay' => [
             'class' => '\common\extensions\wechatpay\WechatPay',
