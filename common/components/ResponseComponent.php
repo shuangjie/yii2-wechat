@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DoubleJack
- * Date: 2018/4/18
- * Time: 17:48
- */
 namespace common\components;
 
 
@@ -13,11 +7,6 @@ class ResponseComponent{
     //相应代码
     CONST CODE_ACTIVATED = 0;
     CONST CODE_ERROR = 1;
-    CONST CODE_OPERATE_FAILED = 10;
-    CONST CODE_PARAMS_ERROR = 20;
-    CONST CODE_STATUS_ERROR = 30;
-    CONST CODE_DATA_ERROR = 40;
-    CONST CODE_SYSTEM_ERROR = 50;
 
     /**
      * @var array 代码配置
@@ -25,10 +14,6 @@ class ResponseComponent{
     static $code_config = [
         self::CODE_ACTIVATED => 'success',
         self::CODE_ERROR => 'FAIL',
-        self::CODE_PARAMS_ERROR => '参数错误',
-        self::CODE_STATUS_ERROR => '状态错误',
-        self::CODE_DATA_ERROR => '数据错误',
-        self::CODE_SYSTEM_ERROR => '系统错误',
     ];
 
     public static function getCodeLabel($code){
