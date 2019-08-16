@@ -23,7 +23,7 @@
 
 克隆源代码到本地：
 
-    > git clone git@github.com:overtrue/api.yike.io.git
+    > git clone git@github.com:shuangjie/yii2-wechat.git
 
 #### 安装扩展包依赖
 
