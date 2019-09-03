@@ -26,7 +26,9 @@
         "codeception/base": "^2.4.0",
         "phpunit/phpunit": "~6.5.5",
         "codeception/verify": "~1.0.0",
-        "symfony/browser-kit": ">=2.7 <=4.2.4"
+        "symfony/browser-kit": ">=2.7 <=4.2.4",
+        "yiisoft/yii2-authclient": "^2.1",
+        "yiisoft/yii2-redis": "^2.0"
     },
     "config": {
         "process-timeout": 1800,
